@@ -5,6 +5,16 @@ import AnimalItem from "./AnimalItem/AnimalItem";
 const AnimalsList = ({ list }) => {
   const [animals, setAnimals] = useState(list);
 
+  const handleButtonToggle = (index) => {
+    setAnimals((prevState) =>
+      prevState.map((animal, i) =>
+        i === index
+          ? { ...animal, isButtonActive: !animal.isButtonActive }
+          : animal
+      )
+    );
+  };
+
   const handleDeleteAnimal = (index) => {
     setAnimals((prevState) => prevState.filter((_, i) => i !== index));
   };
@@ -17,7 +27,9 @@ const AnimalsList = ({ list }) => {
           index={index}
           icon={animal.icon}
           type={animal.type}
-          handleDelete={handleDeleteAnimal}
+          isButtonActive={animal.isButtonActive}
+          handleToggle={() => handleButtonToggle(index)}
+          handleDelete={() => handleDeleteAnimal(index)}
         />
       ))}
     </ul>
