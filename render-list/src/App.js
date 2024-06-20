@@ -4,9 +4,9 @@ import AnimalsList from "./components/AnimalsList/AnimalsList";
 
 function App() {
   return (
-    <div>
+    <>
       <AnimalsList list={animals} />
-    </div>
+    </>
   );
 }
 
