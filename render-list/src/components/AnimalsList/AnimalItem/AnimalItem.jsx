@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../style.css";
 import ButtonComponent from "./ButtonComponent/ButtonComponent";
+import { getButtonClass, getButtonTitle } from "../../../utils/animalHelpers";
 
 const AnimalItem = ({
   icon,
@@ -11,11 +12,10 @@ const AnimalItem = ({
 }) => {
   return (
     <li>
-      {icon}{" "}
-      <span className={isButtonActive ? "active-button-text" : ""}>{type}</span>{" "}
+      {icon} <span className={getButtonClass(isButtonActive)}>{type}</span>{" "}
       <ButtonComponent
         handleClick={handleToggle}
-        title={isButtonActive ? "Deactivate" : "Active"}
+        title={getButtonTitle(isButtonActive)}
       />{" "}
       <ButtonComponent handleClick={handleDelete} title={"Delete"} />
     </li>
