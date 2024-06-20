@@ -25,9 +25,7 @@ const AnimalsList = ({ list }) => {
         <AnimalItem
           key={index}
           index={index}
-          icon={animal.icon}
-          type={animal.type}
-          isButtonActive={animal.isButtonActive}
+          animal={animal}
           handleToggle={() => handleButtonToggle(index)}
           handleDelete={() => handleDeleteAnimal(index)}
         />

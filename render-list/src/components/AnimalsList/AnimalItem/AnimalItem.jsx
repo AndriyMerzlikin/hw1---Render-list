@@ -3,13 +3,9 @@ import "../../../style.css";
 import ButtonComponent from "./ButtonComponent/ButtonComponent";
 import { getButtonClass, getButtonTitle } from "../../../utils/animalHelpers";
 
-const AnimalItem = ({
-  icon,
-  type,
-  isButtonActive,
-  handleDelete,
-  handleToggle,
-}) => {
+const AnimalItem = ({ animal, handleDelete, handleToggle }) => {
+  const { icon, type, isButtonActive } = animal;
+
   return (
     <li>
       {icon} <span className={getButtonClass(isButtonActive)}>{type}</span>{" "}
